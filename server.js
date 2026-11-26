@@ -7,6 +7,15 @@ const dotenv = require("dotenv")
 // Load environment variables
 dotenv.config()
 
+const mongodbDnsServers = (process.env.MONGODB_DNS_SERVERS || "")
+  .split(",")
+  .map((server) => server.trim())
+  .filter(Boolean)
+
+if (mongodbDnsServers.length > 0) {
+  require("dns").setServers(mongodbDnsServers)
+}
+
 // Import webhook dependencies
 const razorpayHelpers = require("./utils/razorpayHelpers")
 const Order = require("./models/orderModel")

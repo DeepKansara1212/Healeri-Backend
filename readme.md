@@ -92,6 +92,8 @@ A powerful and comprehensive backend API for the Healery e-commerce platform, bu
 
    # MongoDB Configuration
    MONGODB_URI=mongodb://localhost:27017/healery
+   # Optional DNS resolver override for Node SRV lookup issues (comma-separated)
+   MONGODB_DNS_SERVERS=
 
    # JWT Configuration
    JWT_SECRET=your_jwt_secret_key_here
@@ -133,6 +135,11 @@ A powerful and comprehensive backend API for the Healery e-commerce platform, bu
    `CORS_ORIGINS` for additional comma-separated frontend origins. Restart or
    redeploy the backend after changing these values. Localhost development
    origins are allowed automatically only when `NODE_ENV` is not `production`.
+
+   If MongoDB Atlas SRV lookup fails in Node but works in Windows DNS tools,
+   set `MONGODB_DNS_SERVERS` to one or more reachable DNS resolver IP addresses,
+   comma-separated, then restart the backend. Leave it empty when the default
+   Node DNS resolver works.
 
 4. **Database Setup**
    - Install MongoDB locally or use MongoDB Atlas

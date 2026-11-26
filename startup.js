@@ -18,6 +18,8 @@ NODE_ENV=development
 
 # MongoDB Configuration
 MONGODB_URI=mongodb://localhost:27017/healery
+# Optional DNS resolver override for Node SRV lookup issues (comma-separated)
+MONGODB_DNS_SERVERS=
 
 # JWT Configuration
 JWT_SECRET=your_jwt_secret_key_here_change_in_production
